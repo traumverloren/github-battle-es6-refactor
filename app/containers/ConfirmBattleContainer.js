@@ -9,12 +9,18 @@ var ConfirmBattleContainer = React.createClass({
   getInitialState: function() {
     return {
       isLoading: true,
-      playerInfo: []
+      playersInfo: []
     };
+  },
+  componentDidMount: function() {
+    var query = this.props.location.query;
+    // fetch info from GH and then update the state
   },
   render: function() {
     return (
-      <ConfirmBattle />
+      <ConfirmBattle
+        isLoading={this.state.isLoading}
+        playersInfo={this.state.playersInfo} />
     );
   }
 
