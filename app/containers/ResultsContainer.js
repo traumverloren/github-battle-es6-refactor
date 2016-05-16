@@ -3,23 +3,23 @@ import Results from '../components/Results'
 import { battle } from '../utils/githubHelpers'
 
 const ResultsContainer = React.createClass({
-  getInitialState: function() {
+  getInitialState () {
     return {
       isLoading: true,
       scores: []
     }
   },
-  componentDidMount: function() {
+  componentDidMount () {
     battle(this.props.location.state.playersInfo)
-      .then(function (scores) {
+      .then((scores) => {
         this.setState({
         scores: scores,
         isLoading: false
       })
-    }.bind(this))
+    })
   },
 
-  render: function() {
+  render () {
     return (
       <Results
         playersInfo={this.props.location.state.playersInfo}
