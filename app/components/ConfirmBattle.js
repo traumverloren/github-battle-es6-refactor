@@ -1,11 +1,12 @@
-var React = require('react');
-var PropTypes = React.PropTypes;
-var styles = require('../styles');
-var Link = require('react-router').Link;
-var UserDetails = require('./UserDetails');
-var UserDetailsWrapper = require('./UserDetailsWrapper');
-var MainContainer = require('./MainContainer');
-var Loading = require('./Loading');
+import React, { PropTypes } from 'react'
+import styles from '../styles'
+
+import { Link } from 'react-router'
+
+import UserDetails from './UserDetails'
+import UserDetailsWrapper from './UserDetailsWrapper'
+import MainContainer from './MainContainer'
+import Loading from './Loading'
 
 function ConfirmBattle (props) {
   return props.isLoading === true
@@ -39,4 +40,4 @@ ConfirmBattle.PropTypes = {
   playersInfo: PropTypes.array.isRequired,
 }
 
-module.exports = ConfirmBattle;
+export default ConfirmBattle

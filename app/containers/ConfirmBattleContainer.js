@@ -1,8 +1,8 @@
 var React = require('react');
 var PropTypes = React.PropTypes;
-var ConfirmBattle = require('../components/ConfirmBattle');
+import ConfirmBattle from '../components/ConfirmBattle'
 var githubHelpers = require('../utils/githubHelpers');
-
+console.log(ConfirmBattle)
 var ConfirmBattleContainer = React.createClass({
   contextTypes: {
     router: React.PropTypes.object.isRequired
