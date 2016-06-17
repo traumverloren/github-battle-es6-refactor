@@ -6,22 +6,27 @@ const ConfirmBattleContainer = React.createClass({
   contextTypes: {
     router: React.PropTypes.object.isRequired
   },
+  
   getInitialState () {
     return {
       isLoading: true,
       playersInfo: []
     };
   },
-  componentDidMount () {
+
+  async componentDidMount () {
     const { query } = this.props.location
-    getPlayersInfo([query.playerOne, query.playerTwo])
-      .then((players) => {
-        this.setState({
-          isLoading: false,
-          playersInfo: [players[0], players[1]]
-        })
+    try {
+      const players = await getPlayersInfo([query.playerOne, query.playerTwo])
+      this.setState({
+        isLoading: false,
+        playersInfo: [players[0], players[1]]
       })
+    } catch (error) {
+      console.warn('Error in ConfirmBattleContainer', error)
+    }
   },
+
   handleInitiateBattle () {
     this.context.router.push({
       pathname: '/results',
